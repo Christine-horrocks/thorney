@@ -6,6 +6,11 @@ module ComponentSerializer
     # @param [Array<Hash>] display_data used for the element's css.
     # @param [String] selector a string to be the id attribute of the status component.
     # @param [Array<Object>] components objects that are to be children of the status component.
+    #
+    # @example Initialising a status banner component
+    #   ComponentSerializer::StatusComponentSerializer.new(type: 'banner', display_data: [display_data(component: 'status', variant: 'banner')], selector: 'css id', components: [A_component_serializer, Another_component_serializer]).to_h
+    # @example Initialising a status primary component
+    #   ComponentSerializer::SectionComponentSerializer.new(type: 'highlight', display_data: [display_data(component: 'status', variant: 'banner')], components: [A_component_serializer, Another_component_serializer]).to_h
     def initialize(type: nil, display_data: nil, selector: nil, components: nil)
       @type = type
       @display_data = display_data

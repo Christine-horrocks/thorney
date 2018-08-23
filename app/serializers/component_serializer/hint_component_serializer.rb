@@ -4,7 +4,10 @@ module ComponentSerializer
     #
     # @param [String] content a translation block that is evaluated in the front-end
     # @param [Array<Hash>] display_data all the css classes for the component
-    def initialize(content: nil, display_data: [])
+    #
+    # @example Initialising a hint partial
+    #   ComponentSerializer::HintComponentSerializer.new(content: 'text on of the hint', display_data: [display_data(component: 'type of component', variant: 'type of variant')]).to_h
+    def initialize(content: nil, display_data: nil)
       @content = content
       @display_data = display_data
     end
