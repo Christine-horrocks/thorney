@@ -12,10 +12,11 @@ class GroupsController < ApplicationController
     @groups = @groups.sort_by(:groupName, :graph_id)
 
     list_components = @groups.map do |group|
-      paragraph_content = [].tap do |content|
-        content << { content: I18n.t('prepositional_to', first: I18n.l(group.start_date), second: I18n.l(group.end_date)) } if group.start_date && group.end_date
-        content << { content: I18n.l(group.start_date) } if group.start_date && !group.end_date
-      end
+      paragraph_content = [time_translation_builder(group)]
+      # paragraph_content = [].tap do |content|
+      #   content << { content: 'shared.time-html-to', date_default_first: I18n.l(group.start_date), datetime_format_first: I18n.l(group.start_date, format: :datetime_format), date_default_second: I18n.l(group.end_date), datetime_format_second: I18n.l(group.end_date, format: :datetime_format) } if group.start_date && group.end_date
+      #   content << { content: 'shared.time-html', date_default: I18n.l(group.start_date), datetime_format: I18n.l(group.start_date, format: :datetime_format) } if group.start_date && !group.end_date
+      # end
 
       CardFactory.new(
         heading_text:      group.try(:groupName),
@@ -38,5 +39,25 @@ class GroupsController < ApplicationController
     serializer = PageSerializer::GroupsShowPageSerializer.new(request: request, group: @group, data_alternates: @alternates)
 
     render_page(serializer)
+  end
+
+  def time_translation_builder(group)
+    if group.start_date && group.end_date
+      {
+        content: 'shared.time-html-to',
+        date_default_first: I18n.l(group.start_date),
+        datetime_format_first: I18n.l(group.start_date, format: :datetime_format),
+        date_default_second: I18n.l(group.end_date),
+        datetime_format_second: I18n.l(group.end_date, format: :datetime_format)
+      }
+    elsif group.start_date && !group.end_date
+      {
+        content: 'shared.time-html',
+        date_default: I18n.l(group.start_date),
+        datetime_format: I18n.l(group.start_date, format: :datetime_format)
+      }
+    else
+      {}
+    end
   end
 end

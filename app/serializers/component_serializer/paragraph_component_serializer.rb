@@ -10,7 +10,7 @@ module ComponentSerializer
     #  ComponentSerializer::ParagraphComponentSerializer.new(content: [{ content: string_or_translation_key, link: link }]).to_h
     #
     # @example You can also add custom properties for use with translations on the front end
-    #  hash = { content: 'some content', date: '14 May 2018', type: 'Statutory Instrument' }
+    #  hash = { content: 'string_or_translation_key', date_default: '14 May 2018', datetime_format: 2018 May 14' }
     #  ComponentSerializer::ParagraphComponentSerializer.new(content: [hash]).to_h
     def initialize(content: nil)
       @content = content
