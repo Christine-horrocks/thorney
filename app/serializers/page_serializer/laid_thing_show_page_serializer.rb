@@ -74,7 +74,8 @@ module PageSerializer
         items << if @business_item && @business_item.try(:date)
                    {
                      'term':        { 'content': @procedure_step.try(:procedureStepName) },
-                     'description': [{ 'content': l(@business_item.try(:date)) }]
+                     # 'description': [{ 'content': l(@business_item.try(:date)) }]
+                     'description': [TimeHelper.description_list_time_translation_object(date_first: @business_item.try(:date))]
                    }
                  end
       end
