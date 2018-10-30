@@ -30,8 +30,7 @@ module PageSerializer
       [].tap do |items|
         web_link = @laid_thing.try(:workPackagedThingHasWorkPackagedThingWebLink)
         items << create_description_list_item('laid-thing.web-link', [link_to(web_link, web_link)]) if web_link
-
-        items << create_description_list_item('laid-thing.laid-date', [l(@laid_thing&.laying&.date)])
+        items << create_description_list_item('laid-thing.laid-date', [TimeHelper.description_list_time_translation_object(date_first: @laid_thing&.laying&.date)], time: true)
         items << create_description_list_item('proposed-negative-statutory-instruments.show.preceding-title', connected_statutory_instruments)
         items << create_description_list_item('laid-thing.laying-person', [@laying_person&.display_name])
         items << create_description_list_item('laid-thing.laying-body', [@laying_body.try(:groupName)])

@@ -85,7 +85,12 @@ main-components:
         heading:
           content: groupName - 1
         context:
-          content: 12 May 2010 to 12 May 2011
+          content: shared.time-html-to
+          data:
+            date-default: 12 May 2010
+            datetime-format: '2010-05-12'
+            date-default-second: 12 May 2011
+            datetime-format-second: '2011-05-12'
 - name: section__section
   data:
     components:

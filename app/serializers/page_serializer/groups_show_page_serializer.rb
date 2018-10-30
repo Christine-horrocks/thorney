@@ -38,7 +38,13 @@ module PageSerializer
         hash[:subheading_content] = 'groups.groups'
         hash[:subheading_data] = { link: groups_path }
         hash[:heading_content] = title
-        hash[:context_content] = @group.date_range
+        # hash[:context_content] = @group.date_range
+        hash[:context_content] = 'shared.time-html-to-present' if @group.start_date && !@group.end_date
+        hash[:context_content] = 'shared.time-html-to' if @group.start_date && @group.end_date
+        hash[:context_content] = t('time.unavailable') unless @group.start_date
+        hash[:context_data] = if @group.start_date
+          TimeHelper.date_format_object(date_first: @group.start_date, date_second: @group.end_date)
+        end
       end
     end
 

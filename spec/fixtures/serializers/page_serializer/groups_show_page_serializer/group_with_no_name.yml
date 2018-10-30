@@ -85,7 +85,10 @@ main-components:
         heading:
           content: "[Name unavailable]"
         context:
-          content: 12 May 2010 to present
+          content: shared.time-html-to-present
+          data:
+            date-default: 12 May 2010
+            datetime-format: '2010-05-12'
 - name: section__section
   data:
     components:

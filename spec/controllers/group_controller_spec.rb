@@ -4,20 +4,21 @@ RSpec.describe GroupsController, vcr: true do
   describe 'GET index' do
     let(:data_alternates) do
       [{
-         :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.nt",
-         :type => "application/n-triples" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.ttl",
-         :type => "text/turtle" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.tsv",
-         :type => "text/tab-separated-values" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.csv",
-         :type => "text/csv" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.rj",
-         :type => "application/json+rdf" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.json",
-         :type => "application/json+ld" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_index.xml",
-         :type => "application/rdf+xml" }]
+        href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.nt",
+        type: 'application/n-triples'
+      },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.ttl",
+         type: 'text/turtle' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.tsv",
+         type: 'text/tab-separated-values' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.csv",
+         type: 'text/csv' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.rj",
+         type: 'application/json+rdf' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.json",
+         type: 'application/json+ld' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_index.xml",
+         type: 'application/rdf+xml' }]
     end
 
     let(:heading) { 'a heading component' }
@@ -26,7 +27,7 @@ RSpec.describe GroupsController, vcr: true do
       allow(PageSerializer::ListPageSerializer).to receive(:new)
       allow(ComponentSerializer::Heading1ComponentSerializer).to receive(:new).with(heading_content: 'Groups') { heading }
 
-      allow(controller.request).to receive(:env).and_return({'ApplicationInsights.request.id' => '|1234abcd.'})
+      allow(controller.request).to receive(:env).and_return({ 'ApplicationInsights.request.id' => '|1234abcd.' })
 
       get :index
     end
@@ -35,15 +36,36 @@ RSpec.describe GroupsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-      it 'assigns @groups' do
-        assigns(:groups).each do |group|
-          expect(group).to be_a(Grom::Node)
-          expect(group.type).to include('https://id.parliament.uk/schema/Group')
-        end
+    it 'assigns @groups' do
+      assigns(:groups).each do |group|
+        expect(group).to be_a(Grom::Node)
+        expect(group.type).to include('https://id.parliament.uk/schema/Group')
       end
+    end
 
     it 'calls the serializer correctly' do
-      list_components = [{"data"=> {"heading"=> {"data"=> {"content"=>"groupName - 1", "link"=>"/groups/tz34m7Vt", "size"=>2}, "name"=>"heading"}, "paragraph"=> {"data"=> [{"content"=>"28 July 1997 to 12 September 2017"}],"name"=>"paragraph"}}, "name"=>"card__generic"}]
+      list_components = [
+        { 'data' =>
+                    { 'heading'   =>
+                                     { 'data' => {
+                                       'content' => 'groupName - 1',
+                                       'link'    => '/groups/tz34m7Vt',
+                                       'size'    => 2
+                                     },
+                                       'name' => 'heading' },
+                      'paragraph' =>
+                                     {
+                                       'data' => [{
+                                         'content' => 'shared.time-html-to',
+                                         'data'    => { 'date-default'           => '28 July 1997',
+                                                        'date-default-second'    => '12 September 2017',
+                                                        'datetime-format'        => '1997-07-28',
+                                                        'datetime-format-second' => '2017-09-12' }
+                                       }],
+                                       'name' => 'paragraph'
+                                     } },
+          'name' => 'card__generic' }
+      ]
 
       expect(PageSerializer::ListPageSerializer).to have_received(:new).with(request: request, heading_component: heading, list_components: list_components, data_alternates: data_alternates)
     end
@@ -52,26 +74,27 @@ RSpec.describe GroupsController, vcr: true do
   describe 'GET show' do
     let(:data_alternates) do
       [{
-         :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.nt?group_id=12345678",
-         :type => "application/n-triples" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.ttl?group_id=12345678",
-         :type => "text/turtle" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.tsv?group_id=12345678",
-         :type => "text/tab-separated-values" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.csv?group_id=12345678",
-         :type => "text/csv" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.rj?group_id=12345678",
-         :type => "application/json+rdf" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.json?group_id=12345678",
-         :type => "application/json+ld" },
-       { :href => "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.xml?group_id=12345678",
-         :type => "application/rdf+xml" }]
+        href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.nt?group_id=12345678",
+        type: 'application/n-triples'
+      },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.ttl?group_id=12345678",
+         type: 'text/turtle' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.tsv?group_id=12345678",
+         type: 'text/tab-separated-values' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.csv?group_id=12345678",
+         type: 'text/csv' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.rj?group_id=12345678",
+         type: 'application/json+rdf' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.json?group_id=12345678",
+         type: 'application/json+ld' },
+       { href: "#{ENV['PARLIAMENT_BASE_URL']}/group_by_id.xml?group_id=12345678",
+         type: 'application/rdf+xml' }]
     end
 
     before(:each) do
       allow(PageSerializer::GroupsShowPageSerializer).to receive(:new)
 
-      get :show, params: { group_id: 12345678 }
+      get :show, params: { group_id: 12_345_678 }
     end
 
     it 'should have a response with http status ok (200)' do

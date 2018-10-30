@@ -9,6 +9,7 @@ RSpec.describe GroupsController, vcr: true do
     context 'navigating to the index page' do
       it 'renders expected JSON output' do
         get '/groups'
+
         filtered_response_body = filter_sensitive_data(response.body)
 
         expected_json = get_fixture('index', 'fixture')

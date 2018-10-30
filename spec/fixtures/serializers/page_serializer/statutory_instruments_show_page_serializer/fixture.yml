@@ -147,7 +147,10 @@ main-components:
                 - term:
                     content: procedureStepName - 1
                   description:
-                  - content: 8 June 2018
+                  - content: shared.time-html
+                    data:
+                      date-default: 8 June 2018
+                      datetime-format: '2018-06-08'
 footer-components:
 - name: footer
   data:

@@ -23,7 +23,13 @@ module PageSerializer
     end
 
     def heading1_component
-      ComponentSerializer::Heading1ComponentSerializer.new({ subheading_content: 'statutory-instruments.show.subheading', heading_content: title, context_content: "#{@statutory_instrument.try(:statutoryInstrumentPaperPrefix)} #{@statutory_instrument.try(:statutoryInstrumentPaperYear)}/#{@statutory_instrument.try(:statutoryInstrumentPaperNumber)}" }).to_h
+      ComponentSerializer::Heading1ComponentSerializer.new(
+        {
+          subheading_content: 'statutory-instruments.show.subheading',
+          heading_content: title,
+          context_content: "#{@statutory_instrument.try(:statutoryInstrumentPaperPrefix)} #{@statutory_instrument.try(:statutoryInstrumentPaperYear)}/#{@statutory_instrument.try(:statutoryInstrumentPaperNumber)}"
+          }
+        ).to_h
     end
 
     def meta_info
@@ -31,8 +37,8 @@ module PageSerializer
         web_link = @laid_thing.try(:workPackagedThingHasWorkPackagedThingWebLink)
         items << create_description_list_item('laid-thing.web-link', [link_to(web_link, web_link)]) if web_link
         items << create_description_list_item('statutory-instruments.show.made-date', [l(@statutory_instrument.made_date)])
-        items << create_description_list_item('laid-thing.laid-date', [l(@laid_thing&.laying&.date)])
-        items << create_description_list_item('statutory-instruments.show.coming-into-force-date', [l(@statutory_instrument.coming_into_force_date)])
+        items << create_description_list_item('laid-thing.laid-date', [TimeHelper.description_list_time_translation_object(date_first: @laid_thing&.laying&.date)], time: true)
+        items << create_description_list_item('statutory-instruments.show.coming-into-force-date', [TimeHelper.description_list_time_translation_object(date_first: @statutory_instrument.coming_into_force_date)], time: true)
         items << create_description_list_item('statutory-instruments.show.coming-into-force-note', [@statutory_instrument.try(:statutoryInstrumentPaperComingIntoForceNote)])
         items << create_description_list_item('statutory-instruments.show.following-title', connected_statutory_instruments)
         items << create_description_list_item('laid-thing.laying-person', [@laying_person&.display_name])

@@ -35,6 +35,7 @@ en:
   lord_plural: Lords
   prepositional_to: "%{first} to %{second}"
   time:
+    unavailable: '[Date unavailable]'
     formats:
       default: '%-d %B %Y'
       datetime_format: '%Y-%m-%d'
