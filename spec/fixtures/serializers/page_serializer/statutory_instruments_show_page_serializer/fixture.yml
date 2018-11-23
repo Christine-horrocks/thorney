@@ -86,7 +86,7 @@ main-components:
           content: statutoryInstrumentPaperName - 1
         context:
           content: statutoryInstrumentPaperPrefix - 1 statutoryInstrumentPaperYear
-            - 1/488
+            - 1/1116
     - name: list__description
       data:
         meta: true
@@ -94,32 +94,43 @@ main-components:
         - term:
             content: laid-thing.web-link
           description:
-          - content: <a href="http://www.legislation.gov.uk/uksi/2018/488/made">http://www.legislation.gov.uk/uksi/2018/488/made</a>
+          - content: <a href="http://www.legislation.gov.uk/uksi/2018/1116/made">http://www.legislation.gov.uk/uksi/2018/1116/made</a>
         - term:
-            content: laid-thing.laid-date
+            content: statutory-instruments.show.made-date
           description:
           - content: shared.time-html
             data:
-              date: 20 April 2018
-              datetime-value: '2018-04-20'
+              date: 24 October 2018
+              datetime-value: '2018-10-24'
+        - term:
+            content: laid-thing.house-laid-date
+            data:
+              house: houseName - 1
+          description:
+          - content: shared.time-html
+            data:
+              date: 7 November 2018
+              datetime-value: '2018-11-07'
+        - term:
+            content: laid-thing.house-laid-date
+            data:
+              house: houseName - 2
+          description:
+          - content: shared.time-html
+            data:
+              date: 2 December 2018
+              datetime-value: '2018-12-02'
         - term:
             content: statutory-instruments.show.coming-into-force-date
           description:
           - content: shared.time-html
             data:
-              date: 18 May 2018
-              datetime-value: '2018-05-18'
-        - term:
-            content: statutory-instruments.show.following-title
-          description:
-          - content: <a href="/proposed-negative-statutory-instruments/C1234567">proposedNegativeStatutoryInstrumentPaperName
-              - 1</a>
-          - content: <a href="/proposed-negative-statutory-instruments/D1234567">proposedNegativeStatutoryInstrumentPaperName
-              - 2</a>
+              date: 29 March 2019
+              datetime-value: '2019-03-29'
         - term:
             content: laid-thing.laying-body
           description:
-          - content: <a href="/groups/XouN12Ow">groupName - 1</a>
+          - content: <a href="/groups/7dSvuueH">groupName - 1</a>
 - name: section__section
   data:
     components:
@@ -141,7 +152,7 @@ main-components:
             heading:
               name: heading
               data:
-                content: <a href="/work-packages/EgDK23iB">statutoryInstrumentPaperName
+                content: <a href="/work-packages/Fz9FAH9L">statutoryInstrumentPaperName
                   - 1</a>
                 size: 2
             list-description:
@@ -157,8 +168,8 @@ main-components:
                   description:
                   - content: shared.time-html
                     data:
-                      date: 8 June 2018
-                      datetime-value: '2018-06-08'
+                      date: 15 December 2018
+                      datetime-value: '2018-12-15'
 footer-components:
 - name: footer
   data:

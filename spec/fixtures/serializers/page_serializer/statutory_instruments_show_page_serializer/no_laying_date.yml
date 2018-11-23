@@ -4,29 +4,14 @@ layout:
 meta:
   title: statutoryInstrumentPaperName - 1 - UK Parliament
   request-id: 123456
-  data-alternates:
-  - type: application/n-triples
-    href: http://localhost:3030/statutory_instrument_by_id.nt?statutory_instrument_id=1234567
-  - type: text/turtle
-    href: http://localhost:3030/statutory_instrument_by_id.ttl?statutory_instrument_id=1234567
-  - type: text/tab-separated-values
-    href: http://localhost:3030/statutory_instrument_by_id.tsv?statutory_instrument_id=1234567
-  - type: text/csv
-    href: http://localhost:3030/statutory_instrument_by_id.csv?statutory_instrument_id=1234567
-  - type: application/json+rdf
-    href: http://localhost:3030/statutory_instrument_by_id.rj?statutory_instrument_id=1234567
-  - type: application/json+ld
-    href: http://localhost:3030/statutory_instrument_by_id.json?statutory_instrument_id=1234567
-  - type: application/rdf+xml
-    href: http://localhost:3030/statutory_instrument_by_id.xml?statutory_instrument_id=1234567
   open-graph:
     title: statutoryInstrumentPaperName - 1 - UK Parliament
-    original-url: https://www.example.com/statutory-instruments/1234567
+    original-url: https://example.com/
     image-url: https://static.parliament.uk/assets-public/opengraph-oblong.png
     image-width: '1200'
     image-height: '630'
     twitter-card: summary_large_image
-  opensearch-description-url: https://www.example.com/search/opensearch
+  opensearch-description-url: https://example.com/search/opensearch
 header-components:
 - name: link
   data:
@@ -117,24 +102,6 @@ main-components:
             data:
               date: 24 October 2018
               datetime-value: '2018-10-24'
-        - term:
-            content: laid-thing.house-laid-date
-            data:
-              house: houseName - 1
-          description:
-          - content: shared.time-html
-            data:
-              date: 7 November 2018
-              datetime-value: '2018-11-07'
-        - term:
-            content: laid-thing.house-laid-date
-            data:
-              house: houseName - 2
-          description:
-          - content: shared.time-html
-            data:
-              date: 2 December 2018
-              datetime-value: '2018-12-02'
         - term:
             content: statutory-instruments.show.coming-into-force-date
           description:

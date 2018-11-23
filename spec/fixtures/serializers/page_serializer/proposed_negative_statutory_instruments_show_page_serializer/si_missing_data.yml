@@ -84,6 +84,75 @@ main-components:
             link: "/proposed-negative-statutory-instruments"
         heading:
           content: proposedNegativeStatutoryInstrumentPaperName - 1
+    - name: list__description
+      data:
+        meta: true
+        items:
+        - term:
+            content: laid-thing.web-link
+          description:
+          - content: <a href="https://www.gov.uk/eu-withdrawal-act-2018-statutory-instruments/the-air-quality-amendment-of-domestic-regulations-eu-exit-regulations-2018">https://www.gov.uk/eu-withdrawal-act-2018-statutory-instruments/the-air-quality-amendment-of-domestic-regulations-eu-exit-regulations-2018</a>
+        - term:
+            content: laid-thing.house-laid-date
+            data:
+              house: houseName - 1
+          description:
+          - content: shared.time-html
+            data:
+              date: 22 November 2018
+              datetime-value: '2018-11-22'
+        - term:
+            content: laid-thing.house-laid-date
+            data:
+              house: houseName - 2
+          description:
+          - content: shared.time-html
+            data:
+              date: 22 November 2018
+              datetime-value: '2018-11-22'
+        - term:
+            content: laid-thing.laying-body
+          description:
+          - content: <a href="/groups/5LQ5Ar74">groupName - 1</a>
+- name: section__section
+  data:
+    components:
+    - name: list__generic
+      data:
+        type: ol
+        display:
+          name: partials__display
+          data:
+          - component: list
+            variant: block
+        components:
+        - name: card__generic
+          data:
+            small:
+              name: partials__small
+              data:
+                content: laid-thing.procedural-activity
+            heading:
+              name: heading
+              data:
+                content: <a href="/work-packages/JDUfxIyI">proposedNegativeStatutoryInstrumentPaperName
+                  - 1</a>
+                size: 2
+            list-description:
+              name: list__description
+              data:
+                items:
+                - term:
+                    content: Procedure
+                  description:
+                  - content: procedureName - 1
+                - term:
+                    content: procedureStepName - 1
+                  description:
+                  - content: shared.time-html
+                    data:
+                      date: 10 December 2018
+                      datetime-value: '2018-12-10'
 footer-components:
 - name: footer
   data:

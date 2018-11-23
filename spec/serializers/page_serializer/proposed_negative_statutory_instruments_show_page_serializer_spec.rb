@@ -20,6 +20,24 @@ RSpec.describe PageSerializer::ProposedNegativeStatutoryInstrumentsShowPageSeria
     end
   end
 
+  context 'with only one laying date' do
+    it 'produces the expected JSON hash' do
+
+      expected = get_fixture('one_laying_date')
+
+      expect(subject.to_yaml).to eq expected
+    end
+  end
+
+  context 'with no laying date' do
+    it 'produces the expected JSON hash' do
+
+      expected = get_fixture('no_laying_date')
+
+      expect(subject.to_yaml).to eq expected
+    end
+  end
+
   context 'partial data' do
     it 'produces the expected JSON hash with missing data' do
 

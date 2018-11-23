@@ -86,29 +86,90 @@ main-components:
           content: statutoryInstrumentPaperName - 1
         context:
           content: statutoryInstrumentPaperPrefix - 1 statutoryInstrumentPaperYear
-            - 1/538
+            - 1/1116
     - name: list__description
       data:
         meta: true
         items:
         - term:
+            content: laid-thing.web-link
+          description:
+          - content: <a href="http://www.legislation.gov.uk/uksi/2018/1116/made">http://www.legislation.gov.uk/uksi/2018/1116/made</a>
+        - term:
             content: statutory-instruments.show.made-date
           description:
           - content: shared.time-html
             data:
-              date: 1 May 2018
-              datetime-value: '2018-05-01'
+              date: 24 October 2018
+              datetime-value: '2018-10-24'
+        - term:
+            content: laid-thing.house-laid-date
+            data:
+              house: houseName - 1
+          description:
+          - content: shared.time-html
+            data:
+              date: 7 November 2018
+              datetime-value: '2018-11-07'
+        - term:
+            content: laid-thing.house-laid-date
+            data:
+              house: houseName - 2
+          description:
+          - content: shared.time-html
+            data:
+              date: 2 December 2018
+              datetime-value: '2018-12-02'
         - term:
             content: statutory-instruments.show.coming-into-force-date
           description:
           - content: shared.time-html
             data:
-              date: 1 June 2018
-              datetime-value: '2018-06-01'
+              date: 29 March 2019
+              datetime-value: '2019-03-29'
         - term:
-            content: statutory-instruments.show.coming-into-force-note
+            content: laid-thing.laying-body
           description:
-          - content: statutoryInstrumentPaperComingIntoForceNote - 1
+          - content: <a href="/groups/7dSvuueH">groupName - 1</a>
+- name: section__section
+  data:
+    components:
+    - name: list__generic
+      data:
+        type: ol
+        display:
+          name: partials__display
+          data:
+          - component: list
+            variant: block
+        components:
+        - name: card__generic
+          data:
+            small:
+              name: partials__small
+              data:
+                content: laid-thing.procedural-activity
+            heading:
+              name: heading
+              data:
+                content: <a href="/work-packages/Fz9FAH9L">statutoryInstrumentPaperName
+                  - 1</a>
+                size: 2
+            list-description:
+              name: list__description
+              data:
+                items:
+                - term:
+                    content: Procedure
+                  description:
+                  - content: procedureName - 1
+                - term:
+                    content: procedureStepName - 1
+                  description:
+                  - content: shared.time-html
+                    data:
+                      date: 15 December 2018
+                      datetime-value: '2018-12-15'
 footer-components:
 - name: footer
   data:

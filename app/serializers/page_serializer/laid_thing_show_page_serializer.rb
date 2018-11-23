@@ -80,6 +80,13 @@ module PageSerializer
       end
     end
 
+    def laying_dates
+      @laid_thing.laidThingHasLaying.map do |laying|
+        house = laying.procedure_step.house.houseName
+        create_description_list_item(term: ContentDataHelper.content_data(content: 'laid-thing.house-laid-date', house: house), descriptions: [TimeHelper.time_translation(date_first: laying.date)]) if @laid_thing&.laying&.date
+      end
+    end
+
     def heading1_component
       raise StandardError, 'You must implement #heading1_component'
     end
